@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Académico | Estilo Único</title>
+  <style>
+    :root{
+      /* Paleta fría oscura con acentos rojos */
+      --bg:#020617;          /* azul muy oscuro */
+      --panel:#020617;
+      --card:#0f172a;        /* azul gris oscuro */
+      --accent:#dc2626;      /* rojo intenso */
+      --accent2:#991b1b;     /* rojo oscuro */
+      --accent3:#60a5fa;     /* azul frío */
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Segoe UI', Tahoma, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,.15), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(56,189,248,.15), transparent 50%),
+        linear-gradient(160deg, var(--panel), var(--bg));
+      color:var(--text);
+    }
+    /* ===== LAYOUT ===== */
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      min-height:100vh;
+    }
+    aside{
+      background:linear-gradient(180deg,#0f172a,#111827);
+      padding:30px 22px;
+      text-align:center;
+      border-right:2px solid rgba(148,163,184,.15);
+    }
+    main{padding:30px}
+
+    /* ===== PERFIL ===== */
+    .avatar-wrap{
+      width:180px;height:180px;margin:0 auto 20px;position:relative;
+      border-radius:50%;padding:8px;
+      background:linear-gradient(135deg, #7f1d1d, #450a0a, #0f172a);
+      box-shadow:0 0 0 2px rgba(220,38,38,.6), 0 0 25px rgba(220,38,38,.35);
+    }
+    .avatar-wrap::after{
+      content:'';position:absolute;inset:-6px;border-radius:50%;
+      filter:blur(18px);opacity:.45;
+      background:linear-gradient(120deg,var(--accent),var(--accent2));
+      z-index:-1;
+    }
+    .avatar{
+      width:100%;height:100%;border-radius:50%;object-fit:cover;
+      background:#000;
+    }
+    
+      100%{transform:rotate(360deg)}
+    }
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    aside h1{margin:10px 0 6px;color:var(--accent)}
+    aside p{color:var(--muted);font-size:14px}
+    .badges span{
+      display:inline-block;margin:6px;padding:6px 14px;border-radius:999px;
+      background:rgba(205,180,255,.15);color:var(--accent2);font-size:13px
+    }
+
+    /* ===== SECCIONES ===== */
+    section{
+      background:linear-gradient(160deg,#1e293b,#0f172a);
+      border-radius:18px;padding:26px;
+      box-shadow:0 12px 28px rgba(0,0,0,.45);margin-bottom:26px
+    }
+    h2{margin-top:0;color:var(--accent);
+      border-bottom:2px solid rgba(220,38,38,.6);padding-bottom:6px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{
+      background:linear-gradient(160deg,#1e293b,#111827);
+      border:1px solid rgba(96,165,250,.25);
+      border-radius:16px;padding:18px;
+      transition:.35s;position:relative;overflow:hidden
+    }
+    .card::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(120deg, transparent, rgba(165,243,252,.6), transparent);
+      opacity:0;transition:.35s
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 20px 40px rgba(56,189,248,.25)
+    }
+    .card:hover::after{opacity:1}
+    .card h3{margin-top:0;color:var(--accent2)}
+    .timeline{border-left:3px solid var(--accent2);padding-left:16px}
+    .timeline .item{margin-bottom:16px}
+    footer{text-align:center;color:var(--muted);padding:20px}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      .layout{grid-template-columns:1fr}
+      aside{border-right:none;border-bottom:2px solid rgba(255,255,255,.06)}
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <aside>
+    <div class="avatar-wrap">
+      <img src="perfil.jpg" alt="Foto de perfil" class="avatar" />
+    </div>
+    <h1>Jorge Reyes</h1>
+    <p>Perfil académico creativo con estética tipo juego y enfoque tecnológico.</p>
+    <p>19 Años.</p>
+    <div class="badges">
+      <span>🎓 Licenciatura</span>
+      <span>💻 Tecnología</span>
+      <span>🧠 Aprendizaje</span>
+    </div>
+  </aside>
+
+  <main>
+    <section>
+      <h2>Resumen Académico</h2>
+      <p>
+        Estudiante interesado en programación, matemáticas y física, con gusto por aprender mediante
+        proyectos prácticos y un enfoque creativo en el uso de la tecnología.
+      </p>
+    </section>
+
+    <section>
+      <h2>Formación Académica</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>Institución Educativa</h3>
+          <p>Carrera · Años</p>
+          <p>Formación enfocada en áreas científicas y tecnológicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Áreas de Interés</h2>
+      <div class="grid">
+        <div class="card">💻 Programación</div>
+        <div class="card">🤖 Inteligencia Artificial</div>
+        <div class="card">📐 Matemáticas</div>
+        <div class="card">🔬 Física</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proyectos Académicos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Proyecto Destacado</h3>
+          <p>Materia · Año</p>
+          <p>Proyecto académico enfocado en resolver un problema mediante tecnología.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gustos y Pasatiempos</h2>
+      <div class="grid">
+        <div class="card"><h3>🎮 Juegos</h3><p>Juegos de estrategia, lógica y accion.</p></div>
+        <div class="card"><h3>📚 Lectura</h3><p>Ciencia, tecnología y divulgación.</p></div>
+        <div class="card"><h3>💡 Creatividad</h3><p>Experimentar con ideas y código.</p></div>
+        <div class="card"><h3>🎧 Música</h3><p>Acompañamiento para estudiar.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contacto Académico</h2>
+      <p>📩 Email: jorchreyh03@gmail.com </p>
+      <p>🏫 Institución: Universidad Mexiquense  del Bicentenario </p>
+      <p>📍 Ubicación: México</p>
+    </section>
+
+    <footer>© 2026 · Perfil Académico Único</footer>
+  </main>
+</div>
+
+</body>
+</html>
